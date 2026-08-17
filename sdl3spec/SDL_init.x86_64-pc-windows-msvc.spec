@@ -1,0 +1,20 @@
+[
+{ "tag": "enum", "ns": 0, "name": "SDL_AppResult", "id": 0, "location": "/usr/include/SDL3/SDL_init.h:109:14", "fields": [{ "tag": "field", "name": "SDL_APP_CONTINUE", "value": 0 }, { "tag": "field", "name": "SDL_APP_SUCCESS", "value": 1 }, { "tag": "field", "name": "SDL_APP_FAILURE", "value": 2 }] },
+{ "tag": "typedef", "ns": 0, "name": "SDL_AppResult", "location": "/usr/include/SDL3/SDL_init.h:114:3", "type": { "tag": ":enum", "name": "SDL_AppResult", "id": 0 } },
+{ "tag": "typedef", "ns": 0, "name": "SDLCALL", "location": "/usr/include/SDL3/SDL_init.h:133:24", "type": { "tag": ":function" } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_URL_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:475:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_TYPE_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:476:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_COPYRIGHT_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:474:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_IDENTIFIER_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:472:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_CREATOR_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:473:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_VERSION_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:471:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_PROP_APP_METADATA_NAME_STRING", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:470:9", "type": { "tag": ":pointer", "type": { "tag": ":char", "bit-size": 8, "bit-alignment": 8 } } },
+{ "tag": "const", "name": "SDL_INIT_AUDIO", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:80:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 16 },
+{ "tag": "const", "name": "SDL_INIT_EVENTS", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:85:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 16384 },
+{ "tag": "const", "name": "SDL_INIT_SENSOR", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:86:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 32768 },
+{ "tag": "const", "name": "SDL_INIT_CAMERA", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:87:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 65536 },
+{ "tag": "const", "name": "SDL_INIT_VIDEO", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:81:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 32 },
+{ "tag": "const", "name": "SDL_INIT_JOYSTICK", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:82:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 512 },
+{ "tag": "const", "name": "SDL_INIT_HAPTIC", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:83:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 4096 },
+{ "tag": "const", "name": "SDL_INIT_GAMEPAD", "ns": 0, "location": "/usr/include/SDL3/SDL_init.h:84:9", "type": { "tag": ":unsigned-long", "bit-size": 32, "bit-alignment": 32 }, "value": 8192 }
+]
