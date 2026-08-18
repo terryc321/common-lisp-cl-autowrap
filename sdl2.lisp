@@ -18,7 +18,9 @@
 
 ;; (ql:quickload :cl-autowrap)  but package is called autowrap??
 (defpackage :sdl2.test
-  (:use #:cl #:autowrap))
+  (:use #:cl #:autowrap)
+  (:shadow :remove :random :abort :abs :acos)
+  )
 
 (in-package :sdl2.test)
 
@@ -28,21 +30,18 @@
 
 ;; toplevel macro - cant make exclude definitions nice in any way - must be lilterals strings??!?
 (c-include "/usr/include/SDL2/SDL.h"
-               :spec-path (merge-pathnames "./sdl2spec/" (asdf-path 'brut))
-	       :exclude-definitions ("SDL-I-OVPRINTF"
-				     "SDL-LOG-MESSAGE-V"
-				     "SDL-SET-ERROR-V"
-				     "SDL-VASPRINTF"
-				     "SDL-VSNPRINTF"
-				     "SDL-VSSCANF"
-				     "SDL-VSWPRINTF"
-				     "VA-LIST"
-				     "VFWPRINTF"
-				     "VFWSCANF"
-				     "VSWPRINTF" 
-				     "VWSCANF"
-				     "WCSTOLD"
-				     "_FLOAT64X"))
+           :spec-path (merge-pathnames "./sdl2spec/" (asdf-path 'brut))
+	   :exclude-sources ("/usr/include/math.h")
+	   :exclude-definitions ("remove" "log"
+					 "sqrt" "floor" "round"
+				 "random"
+				 "acos"
+				 "asin"
+				 "atan"
+				 "cos"
+				 "sin"
+				 "tan"
+				 "exp"))
 
 ;; (c-include "/usr/include/SDL3/SDL_init.h"
 ;;            :spec-path (merge-pathnames "./sdl2spec/" (asdf-path 'brut)))
@@ -53,17 +52,27 @@
 
 ;; ===== a simple example of using sdl3 =======
 ;; FLAG | FLAG is logior logical inclusive or
-;; ! is lognot 
+;; ! is lognot
+;; SDL2 sdl-init a 
 (defun fred ()
-  (let ((window nil)
-	(window-width 640)
-	(window-height 480)
-	(result (sdl-init (logior +sdl-init-video+ +sdl-init-events+))))
-    (format t "result ~a~%" result)
-    (setq window (sdl-create-window "SDL2 window" window-width window-height 0))
-    (sdl-show-window window)
-    (sleep 5)
-    (sdl-quit)))
+  (catch 'abort
+    (let ((window nil)
+	  (window-width 640)
+	  (window-height 480)
+	  (result (sdl-init +sdl-init-everything+)))
+      ;;(logior +sdl-init-video+ +sdl-init-events+)
+      (format t "result =~a~%" result)
+
+      (when (< result 0)
+	(format t "failed to sdl-init")
+	(throw 'abort t))
+      
+      (setq window
+	    (sdl-create-window "SDL2 window" 0 0 window-width window-height 0))
+      (sdl-show-window window)
+      (format t "window ~a ~%" window)
+      (sleep 5)
+      (sdl-quit))))
 
 
 

@@ -1,9 +1,32 @@
 
 # README
 
-## loading 
+## check sbcl version
+
+sbcl is common lisp for linux mainly , 
 ```
-(ql:quickload :brut)
+/opt/sbcl/bin/sbcl --version
+2.6.4 
+```
+have it compiled on the working machine else stuff just doesnt work , 
+for example the (fred) function in sdl2.lisp did not even open a window !
+
+
+## example1
+
+there is code for example1 just opens a simple window using c language.
+the cl-autowrap version does not even manage to open a window.
+investigating the sdl-init for version 2 sdl (thats sdl2 ) the legacy as it puts a window
+on the screen without having to make a renderer.
+
+## loading 
+
+```
+(load "loader.lisp")
+this will run (ql:quickload :brut) but under a continue if any errors occur ! 
+
+
+(ql:quickload :brut) will throw errors 
 ;; 
 ;; sdl3.lisp -- this will pull in sdl3 headers and shared libraries 
 ;; we should wrap all errors as just continuable errors so we can get access to 

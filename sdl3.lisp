@@ -55,16 +55,24 @@
 ;; FLAG | FLAG is logior logical inclusive or
 ;; ! is lognot 
 (defun fred ()
-  (let ((window nil)
-	(window-width 640)
-	(window-height 480)
-	(result (sdl-init (logior +sdl-init-video+ +sdl-init-events+))))
-    (format t "result ~a~%" result)
-    (setq window (sdl-create-window "SDL3 window" window-width window-height 0))
-    (sdl-show-window window)
-    (sleep 5)
-    (sdl-quit)))
+  (catch 'abort
+    (let ((window nil)
+	  (window-width 640)
+	  (window-height 480)
+	  (result (sdl-init +sdl-init-video+)))
+      ;;(logior +sdl-init-video+ +sdl-init-events+)
+      (format t "result =~a~%" result)
 
+      (when (< result 0)
+	(format t "failed to sdl-init")
+	(throw 'abort t))
+      
+      (setq window
+	    (sdl-create-window "SDL2 window" 0 0 window-width window-height 0))
+      (sdl-show-window window)
+      (format t "window ~a ~%" window)
+      (sleep 5)
+      (sdl-quit))))
 
 
   ;;  if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS))

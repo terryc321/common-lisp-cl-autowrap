@@ -5,14 +5,18 @@
    
 #include <SDL2/SDL.h>
 
+
 int main(){
   printf("hello world \n");
-  int res;
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS))
+  Uint32 init= 0;
+  init = SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
+  if (init)
     {
       fprintf(stderr, "0 is success, anything else is failure. failed to init sdl2");
       return -1;
     }
+  fprintf(stdout,"init was %d\n" , init);
+  
   //SDL_Window *win = SDL_CreateWindow("hello",640,480, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
   char msg[10] = "hello";
